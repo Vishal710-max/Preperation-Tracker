@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mass Hiring Prep — Wipro Prep Portal</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">▸ WIPRO_PREP</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Dashboard</a></li>
+    <li><a href="dws.html">DWS Prep</a></li>
+    <li><a href="mass.html" class="active">Mass Prep</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button id="modeToggle" onclick="toggleMode()">☀️</button>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero" style="padding-top:2.5rem;">
+    <div class="hero-badge">🧮 Mass Hiring Track</div>
+    <h1>Mass Hiring <span>Prep</span></h1>
+    <p>Conquer the Wipro NQT — Aptitude, Coding, Essay, and Voice & Accent in one structured system.</p>
+    <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;">
+      <span class="badge badge-blue">Aptitude</span>
+      <span class="badge badge-cyan">Coding</span>
+      <span class="badge badge-green">Essay</span>
+      <span class="badge" style="background:rgba(255,200,80,0.1);color:#ffc850;border-color:rgba(255,200,80,0.25);">Voice</span>
+      <span class="badge badge-red">Interview</span>
+    </div>
+  </section>
+
+  <!-- PROGRESS CHART -->
+  <div class="section-title">📊 Mass Track Progress</div>
+  <div class="chart-box" style="margin-bottom:3rem;">
+    <canvas id="progressChart" height="160"></canvas>
+  </div>
+
+  <!-- APTITUDE -->
+  <div class="section-title">🧮 Aptitude Preparation</div>
+  <div class="two-col" style="margin-bottom:3rem;" data-section="aptitude">
+    <div class="panel">
+      <h3>Topics to Cover</h3>
+      <ul class="topic-list">
+        <li><input type="checkbox" data-task="quant" id="quant"><label for="quant">Quantitative — Percentages, Ratios, Profit & Loss</label></li>
+        <li><input type="checkbox" data-task="lr" id="lr"><label for="lr">Logical Reasoning — Syllogisms, Sequences</label></li>
+        <li><input type="checkbox" data-task="verbal" id="verbal"><label for="verbal">Verbal Ability — RC, Fill in the Blanks</label></li>
+        <li><input type="checkbox" data-task="di" id="di"><label for="di">Data Interpretation — Pie, Bar, Line charts</label></li>
+        <li><input type="checkbox" data-task="ta" id="ta"><label for="ta">Time & Work, Distance, Age problems</label></li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>📝 Quick Tips</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>Speed over Accuracy (initially)</h4>
+          <p>Do 20 Qs/day. Wipro NQT is 60 mins for ~95 questions.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Shortcut Formulas</h4>
+          <p>Memorize: % change, partnership, CI/SI, boats & streams formulas.</p>
+        </div>
+        <div class="timeline-item upcoming">
+          <h4>Mock Tests</h4>
+          <p>Use PrepInsta or IndiaBix for Wipro-specific Aptitude mock tests.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CODING -->
+  <div class="section-title">💻 Coding Practice</div>
+  <div class="two-col" style="margin-bottom:3rem;" data-section="coding">
+    <div class="panel">
+      <h3>Must-Do Problems</h3>
+      <ul class="topic-list">
+        <li><input type="checkbox" data-task="twosum" id="twosum"><label for="twosum">Two Sum (Array + HashMap)</label></li>
+        <li><input type="checkbox" data-task="palindrome" id="palindrome"><label for="palindrome">Check Palindrome (String)</label></li>
+        <li><input type="checkbox" data-task="revstr" id="revstr"><label for="revstr">Reverse a String / Linked List</label></li>
+        <li><input type="checkbox" data-task="fibseq" id="fibseq"><label for="fibseq">Fibonacci — Recursion + DP</label></li>
+        <li><input type="checkbox" data-task="anagram" id="anagram"><label for="anagram">Anagram Check</label></li>
+        <li><input type="checkbox" data-task="prime" id="prime"><label for="prime">Prime Number Sieve</label></li>
+        <li><input type="checkbox" data-task="pattern" id="pattern"><label for="pattern">Star / Number Pattern Programs</label></li>
+        <li><input type="checkbox" data-task="sort" id="sort"><label for="sort">Bubble Sort / Selection Sort</label></li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Python Palindrome Solution</h3>
+      <div class="code-block">
+<span class="cm"># Check if string is palindrome</span>
+<span class="kw">def</span> <span class="fn">is_palindrome</span>(s):
+    s = s.lower().replace(<span class="str">" "</span>, <span class="str">""</span>)
+    <span class="kw">return</span> s == s[::-<span class="str">1</span>]
+
+<span class="cm"># Two Sum (HashMap approach O(n))</span>
+<span class="kw">def</span> <span class="fn">two_sum</span>(nums, target):
+    seen = {}
+    <span class="kw">for</span> i, n <span class="kw">in</span> enumerate(nums):
+        diff = target - n
+        <span class="kw">if</span> diff <span class="kw">in</span> seen:
+            <span class="kw">return</span> [seen[diff], i]
+        seen[n] = i
+
+<span class="cm"># Fibonacci (DP)</span>
+<span class="kw">def</span> <span class="fn">fib</span>(n, memo={}):
+    <span class="kw">if</span> n <= <span class="str">1</span>: <span class="kw">return</span> n
+    <span class="kw">if</span> n <span class="kw">not in</span> memo:
+        memo[n] = fib(n-<span class="str">1</span>) + fib(n-<span class="str">2</span>)
+    <span class="kw">return</span> memo[n]
+      </div>
+      <div style="margin-top:1rem;display:flex;gap:0.75rem;">
+        <a href="https://leetcode.com" target="_blank" class="btn btn-outline" style="font-size:0.72rem;">LeetCode ↗</a>
+        <a href="https://hackerrank.com" target="_blank" class="btn btn-outline" style="font-size:0.72rem;">HackerRank ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESSAY -->
+  <div class="section-title">📝 Essay Writing</div>
+  <div class="two-col" style="margin-bottom:3rem;" data-section="essay">
+    <div class="panel">
+      <h3>Checklist</h3>
+      <ul class="topic-list">
+        <li><input type="checkbox" data-task="structure" id="structure"><label for="structure">Learn 3-para structure (Intro → Body → Conclusion)</label></li>
+        <li><input type="checkbox" data-task="keywords" id="keywords"><label for="keywords">Use tech keywords: AI, sustainability, digital India</label></li>
+        <li><input type="checkbox" data-task="practice1" id="practice1"><label for="practice1">Practice: "Impact of AI on jobs"</label></li>
+        <li><input type="checkbox" data-task="practice2" id="practice2"><label for="practice2">Practice: "Work from home — pros and cons"</label></li>
+        <li><input type="checkbox" data-task="practice3" id="practice3"><label for="practice3">Practice: "Digital India and IT sector"</label></li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>🗒️ Essay Template</h3>
+      <div style="padding:1rem;background:var(--surface2);border-radius:10px;font-size:0.85rem;line-height:1.8;border:1px solid var(--border);">
+        <strong style="color:var(--accent2);">Introduction:</strong><br>
+        Start with a powerful statement or statistic. Define the topic and state your stance in 2-3 lines.<br><br>
+        <strong style="color:var(--accent);">Body (2 paragraphs):</strong><br>
+        Para 1: Main argument with example. Para 2: Counter-argument or additional point with real-world data.<br><br>
+        <strong style="color:var(--green);">Conclusion:</strong><br>
+        Summarize in 2 lines. End with a future-looking statement or solution.
+      </div>
+    </div>
+  </div>
+
+  <!-- VOICE & ACCENT -->
+  <div class="section-title">🎙️ Voice & Accent Round</div>
+  <div class="two-col" style="margin-bottom:3rem;" data-section="voice">
+    <div class="panel">
+      <h3>Preparation Checklist</h3>
+      <ul class="topic-list">
+        <li><input type="checkbox" data-task="intro" id="intro"><label for="intro">Prepare and record your self-introduction (60 sec)</label></li>
+        <li><input type="checkbox" data-task="situational" id="situational"><label for="situational">Practice situational responses (STAR format)</label></li>
+        <li><input type="checkbox" data-task="hr" id="hr"><label for="hr">HR Questions: strengths, weaknesses, goals</label></li>
+        <li><input type="checkbox" data-task="tech" id="tech"><label for="tech">Technical pronounciation: API, SQL, Azure, Kubernetes</label></li>
+        <li><input type="checkbox" data-task="pace" id="pace"><label for="pace">Practice speaking at 120-150 words per minute</label></li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>💬 Self-Introduction Template</h3>
+      <div style="padding:1rem;background:var(--surface2);border-radius:10px;font-size:0.85rem;line-height:1.9;border:1px solid var(--border);">
+        <em style="color:var(--muted);">"Good morning! My name is <strong style="color:var(--text);">Vishal Bhingarde</strong>, and I'm a final-year Computer Science student from [College]. I have hands-on experience in <strong style="color:var(--accent2);">Python, Azure Cloud, and full-stack development</strong>. I've built projects including [Project 1] and [Project 2]. I hold the <strong style="color:var(--green);">AZ-900 certification</strong>, which reflects my interest in cloud technologies. I'm excited about the opportunity to join Wipro's DWS team and contribute to real-world cloud solutions."</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- HR INTERVIEW -->
+  <div class="section-title">🤝 HR Interview Questions</div>
+  <div style="margin-bottom:3rem;">
+    <div class="qa-item">
+      <div class="qa-question">
+        Tell me about yourself.
+        <span class="qa-chevron">▼</span>
+      </div>
+      <div class="qa-answer">
+        Use the self-intro template above. Keep it under 90 seconds. Cover: Who you are → Your skills → Your projects → Why Wipro. End with enthusiasm: "I'm eager to contribute to Wipro's mission."
+      </div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-question">
+        Why do you want to join Wipro?
+        <span class="qa-chevron">▼</span>
+      </div>
+      <div class="qa-answer">
+        Research points: Wipro is a global IT leader with 250,000+ employees. Known for its DWS division, strong Azure partnership, and NASSCOM initiatives. Say: "Wipro's investment in cloud and AI infrastructure aligns perfectly with my Azure background. I'm excited about working on enterprise-scale digital transformation projects."
+      </div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-question">
+        What is your greatest strength?
+        <span class="qa-chevron">▼</span>
+      </div>
+      <div class="qa-answer">
+        Use STAR format. Example: "My greatest strength is problem-solving under pressure. During my final year project, our cloud deployment failed 3 hours before demo. I diagnosed an AKS misconfiguration, fixed the pod scheduling, and we delivered on time. This reflects my ability to stay calm and think clearly under stress."
+      </div>
+    </div>
+    <div class="qa-item">
+      <div class="qa-question">
+        Are you okay with relocation / bond?
+        <span class="qa-chevron">▼</span>
+      </div>
+      <div class="qa-answer">
+        Keep it positive and confident: "Yes, I'm fully open to relocation. I understand Wipro has offices across India and globally, and I'm excited to work wherever my skills are needed. Regarding the service agreement, I view this as a long-term commitment and I'm comfortable with it."
+      </div>
+    </div>
+  </div>
+
+  <!-- EXAM PATTERN -->
+  <div class="section-title">📋 NQT Exam Pattern</div>
+  <div class="panel" style="margin-bottom:3rem;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;">
+      <div style="text-align:center;padding:1.25rem;background:var(--surface2);border-radius:12px;border:1px solid var(--border);">
+        <div style="font-size:1.75rem;font-weight:800;color:var(--accent);font-family:var(--mono);">16</div>
+        <div style="font-size:0.8rem;color:var(--muted);margin-top:0.25rem;">Logical Ability Qs</div>
+      </div>
+      <div style="text-align:center;padding:1.25rem;background:var(--surface2);border-radius:12px;border:1px solid var(--border);">
+        <div style="font-size:1.75rem;font-weight:800;color:var(--accent2);font-family:var(--mono);">14</div>
+        <div style="font-size:0.8rem;color:var(--muted);margin-top:0.25rem;">Quantitative Qs</div>
+      </div>
+      <div style="text-align:center;padding:1.25rem;background:var(--surface2);border-radius:12px;border:1px solid var(--border);">
+        <div style="font-size:1.75rem;font-weight:800;color:var(--green);font-family:var(--mono);">22</div>
+        <div style="font-size:0.8rem;color:var(--muted);margin-top:0.25rem;">Verbal Ability Qs</div>
+      </div>
+      <div style="text-align:center;padding:1.25rem;background:var(--surface2);border-radius:12px;border:1px solid var(--border);">
+        <div style="font-size:1.75rem;font-weight:800;color:#ffc850;font-family:var(--mono);">2</div>
+        <div style="font-size:0.8rem;color:var(--muted);margin-top:0.25rem;">Coding Problems</div>
+      </div>
+      <div style="text-align:center;padding:1.25rem;background:var(--surface2);border-radius:12px;border:1px solid var(--border);">
+        <div style="font-size:1.75rem;font-weight:800;color:var(--accent3);font-family:var(--mono);">60</div>
+        <div style="font-size:0.8rem;color:var(--muted);margin-top:0.25rem;">Total Minutes</div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>Built by Vishal Bhingarde — Wipro Mass Hiring Prep 2025</footer>
+
+<script src="js/progress.js"></script>
+<script src="js/main.js"></script>
+<script src="js/charts.js"></script>
+</body>
+</html>
